@@ -1,1 +1,1 @@
-Deno，简单的了解。
+[Deno](https://www.denojs.cn/)，简单的了解。

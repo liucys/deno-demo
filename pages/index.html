@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Once Deno</title>
+    <style>
+      body,
+      html {
+        height: 100vh;
+        background: #333;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        color: aqua;
+      }
+      #timer {
+        font-size: 20px;
+        font-weight: 600;
+        color: aqua;
+        padding: 20px;
+      }
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello Deno，No World!</h1>
+    <img src="https://dash.deno.com/assets/logo.svg" />
+    <div id="timer"></div>
+  </body>
+  <script>
+    function fmt(val) {
+      return val > 9 ? val : `0${val}`;
+    }
+    function getTimer() {
+      const dom = document.getElementById("timer");
+      const date = new Date();
+      const week = [
+        "星期日",
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六",
+      ];
+      const year = date.getFullYear();
+      const month = fmt(date.getMonth());
+      const day = fmt(date.getDate());
+      const w = date.getDay();
+      const hh = fmt(date.getHours());
+      const mm = fmt(date.getMinutes());
+      const ss = fmt(date.getSeconds());
+      dom.innerHTML = `${year}年${month}月${day}日 ${hh}:${mm}:${ss} ${week[w]}`;
+    }
+    setInterval(getTimer, 1000);
+  </script>
+</html>
